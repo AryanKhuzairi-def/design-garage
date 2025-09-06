@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Design Garage - Professional 3D Design & CAD Services. SolidWorks modeling, technical drawings, training, and express design solutions.">
+    <meta name="google-site-verification" content="pcJPzISiurVow0EhAdKYGtSIFbYUkEhf2BeGJQuoyy0" />
+    <title>Design Garage - Professional 3D Design & CAD Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Custom Logo SVG */
+        .logo-svg {
+            width: 48px;
+            height: 48px;
+            margin-right: 12px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #dc2626;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover {
+            color: #dc2626;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu span {
+            width: 24px;
+            height: 3px;
+            background: #dc2626;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #dc2626 100%);
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(220, 38, 38, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(185, 28, 28, 0.2) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 16px 32px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e293b;
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(251, 191, 36, 0.4);
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .services {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e293b, #475569);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(220, 38, 38, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(220, 38, 38, 0.15);
+        }
+
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .software-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .software-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(220,38,38,0.1)"/></svg>');
+            background-size: 50px 50px;
+        }
+
+        .software-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .software-feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .software-feature:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .software-feature h3 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .about {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            color: #1e293b;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid rgba(220, 38, 38, 0.1);
+        }
+
+        .stat-box h3 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .about-visual {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            height: 500px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="20,20 80,20 80,80 20,80" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+            background-size: 40px 40px;
+        }
+
+        .process {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+        }
+
+        .process-step h3 {
+            margin-bottom: 1rem;
+            color: #1e293b;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(251, 191, 36, 0.1) 0%, transparent 50%);
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #fbbf24;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .footer-section a:hover {
+            color: #fbbf24;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .software-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger {
+            transition-delay: calc(var(--i) * 0.1s);
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1M9BMF0CDQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1M9BMF0CDQ');
+</script>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#dc2626"/>
+                            <stop offset="100%" style="stop-color:#b91c1c"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="url(#logoGradient)" stroke="none"/>
+                    <path d="M30 35 L70 35 L70 40 L30 40 Z" fill="white"/>
+                    <path d="M30 45 L70 45 L70 50 L30 50 Z" fill="white"/>
+                    <path d="M30 55 L60 55 L60 60 L30 60 Z" fill="white"/>
+                    <path d="M65 35 Q75 35 75 45 Q75 55 65 55" fill="none" stroke="white" stroke-width="3"/>
+                    <circle cx="67" cy="45" r="2" fill="white"/>
+                </svg>
+                <span class="logo-text">Design Garage</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional <span class="hero-highlight">3D Design</span> & CAD Services</h1>
+                <p>Transform your ideas into precise technical drawings and stunning 3D models using industry-leading SolidWorks software. From concept to creation, we deliver excellence at every step.</p>
+                <div class="cta-buttons">
+                    <a href="#services" class="cta-button cta-primary">
+                        <span>🚀</span> View Services
+                    </a>
+                    <a href="design_garage_landing.html" class="cta-button cta-secondary">
+                        <span>📞</span> Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p class="section-subtitle">Professional design solutions tailored to your unique needs and requirements</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in-up" style="--i:1">
+                    <div class="service-icon">🎯</div>
+                    <h3>3D Modeling & Design</h3>
+                    <p>Professional 3D models and technical drawings created with precision using SolidWorks. Perfect for product development, prototyping, and manufacturing.</p>
+                    <ul class="service-features">
+                        <li>Parametric 3D modeling</li>
+                        <li>Assembly design</li>
+                        <li>Technical drawings</li>
+                        <li>Rendering & visualization</li>
+                        <li>File format conversion</li>
+                    </ul>
+                    <div class="price">RM150 per drawing</div>
+                </div>
+                
+                <div class="service-card fade-in-up" style="--i:2">
+                    <div class="service-icon">🎓</div>
+                    <h3>SolidWorks CAD Training</h3>
+                    <p>Comprehensive SolidWorks training courses designed for beginners to advanced users. Learn from certified professionals with hands-on experience.</p>
+                    <ul class="service-features">
+                        <li>Beginner to advanced courses</li>
+                        <li>One-on-one instruction</li>
+                        <li>Flexible scheduling</li>
+                        <li>Certificate of completion</li>
+                        <li>Real-world projects</li>
+                    </ul>
+                    <div class="price">RM50/hour</div>
+                </div>
+                
+                <div class="service-card fade-in-up" style="--i:3">
+                    <div class="service-icon">⚡</div>
+                    <h3>Express Design Service</h3>
+                    <p>Quick turnaround service for urgent projects. Get your technical drawings and 3D models fast without compromising on quality.</p>
+                    <ul class="service-features">
+                        <li>24-48 hour delivery</li>
+                        <li>Priority support</li>
+                        <li>Multiple revisions</li>
+                        <li>Rush order handling</li>
+                        <li>Weekend availability</li>
+                    </ul>
+                    <div class="price">RM250 per drawing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="software-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">Powered by SolidWorks</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Industry-leading CAD software for professional results and precision engineering</p>
+            </div>
+            <div class="software-features">
+                <div class="software-feature fade-in-up" style="--i:1">
+                    <h3>Parametric Design</h3>
+                    <p>Create intelligent models that update automatically when dimensions change, ensuring design consistency.</p>
+                </div>
+                <div class="software-feature fade-in-up" style="--i:2">
+                    <h3>Assembly Modeling</h3>
+                    <p>Design complex assemblies with motion studies and interference detection for optimal performance.</p>
+                </div>
+                <div class="software-feature fade-in-up" style="--i:3">
+                    <h3>Technical Drawings</h3>
+                    <p>Generate professional 2D drawings with automatic dimensioning and industry-standard annotations.</p>
+                </div>
+                <div class="software-feature fade-in-up" style="--i:4">
+                    <h3>Simulation Ready</h3>
+                    <p>Models optimized for stress analysis and motion simulation to validate designs before manufacturing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in-up">
+                    <h2>Why Choose Design Garage?</h2>
+                    <p>At Design Garage, we combine technical expertise with creative problem-solving to deliver exceptional CAD solutions. Our team specializes in SolidWorks and has years of experience in mechanical design, product development, and engineering.</p>
+                    <p>Whether you need a simple technical drawing or a complex 3D assembly, we provide professional results that meet industry standards. We also offer comprehensive training to help you master SolidWorks yourself.</p>
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h3 class="stat-number">200+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 class="stat-number">50+</h3>
+                            <p>Students Trained</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 class="stat-number">5+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 class="stat-number">24h</h3>
+                            <p>Average Turnaround</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual fade-in-up">
+                    <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#fbbf24"/>
+                                <stop offset="100%" style="stop-color:#f59e0b"/>
+                            </linearGradient>
+                            <linearGradient id="toolGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff"/>
+                                <stop offset="100%" style="stop-color:#e5e7eb"/>
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Computer Monitor -->
+                        <rect x="80" y="60" width="240" height="140" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                        
+                        <!-- Screen with CAD Design -->
+                        <rect x="90" y="70" width="220" height="120" rx="4" fill="url(#screenGlow)"/>
+                        
+                        <!-- 3D Model on Screen -->
+                        <g transform="translate(150,110)">
+                            <!-- 3D Cube/Part -->
+                            <path d="M-30,-20 L30,-20 L40,-10 L-20,-10 Z" fill="rgba(255,255,255,0.9)" opacity="0.8"/>
+                            <path d="M30,-20 L30,20 L40,30 L40,-10 Z" fill="rgba(255,255,255,0.7)" opacity="0.8"/>
+                            <path d="M-30,-20 L-30,20 L30,20 L30,-20 Z" fill="rgba(255,255,255,0.8)" opacity="0.8"/>
+                            
+                            <!-- Dimension Lines -->
+                            <line x1="-35" y1="-20" x2="-35" y2="20" stroke="rgba(220,38,38,0.8)" stroke-width="1"/>
+                            <line x1="-38" y1="-20" x2="-32" y2="-20" stroke="rgba(220,38,38,0.8)" stroke-width="1"/>
+                            <line x1="-38" y1="20" x2="-32" y2="20" stroke="rgba(220,38,38,0.8)" stroke-width="1"/>
+                            <text x="-45" y="5" font-family="Arial" font-size="8" fill="rgba(220,38,38,0.8)">50mm</text>
+                        </g>
+                        
+                        <!-- Monitor Stand -->
+                        <rect x="180" y="200" width="40" height="20" rx="2" fill="rgba(255,255,255,0.2)"/>
+                        <rect x="160" y="220" width="80" height="8" rx="4" fill="rgba(255,255,255,0.2)"/>
+                        
+                        <!-- Design Tools -->
+                        <!-- Ruler -->
+                        <rect x="50" y="240" width="80" height="8" rx="2" fill="url(#toolGradient)"/>
+                        <g>
+                            <line x1="55" y1="240" x2="55" y2="248" stroke="#64748b" stroke-width="0.5"/>
+                            <line x1="65" y1="242" x2="65" y2="248" stroke="#64748b" stroke-width="0.5"/>
+                            <line x1="75" y1="240" x2="75" y2="248" stroke="#64748b" stroke-width="0.5"/>
+                            <line x1="85" y1="242" x2="85" y2="248" stroke="#64748b" stroke-width="0.5"/>
+                            <line x1="95" y1="240" x2="95" y2="248" stroke="#64748b" stroke-width="0.5"/>
+                        </g>
+                        
+                        <!-- Compass/Divider -->
+                        <g transform="translate(340,230)">
+                            <line x1="0" y1="0" x2="8" y2="15" stroke="url(#toolGradient)" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="0" y1="0" x2="-8" y2="15" stroke="url(#toolGradient)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="0" cy="0" r="2" fill="rgba(255,255,255,0.8)"/>
+                        </g>
+                        
+                        <!-- Pencils -->
+                        <rect x="290" y="250" width="4" height="30" fill="#fbbf24" transform="rotate(15 292 265)"/>
+                        <rect x="297" y="252" width="4" height="30" fill="#dc2626" transform="rotate(20 299 267)"/>
+                        <rect x="304" y="248" width="4" height="30" fill="#10b981" transform="rotate(10 306 263)"/>
+                        
+                        <!-- Floating Elements - Gears -->
+                        <g opacity="0.6">
+                            <circle cx="60" cy="80" r="12" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+                            <path d="M60,68 L62,70 L60,72 L58,70 Z" fill="rgba(255,255,255,0.4)"/>
+                            <path d="M72,80 L70,78 L68,80 L70,82 Z" fill="rgba(255,255,255,0.4)"/>
+                            <path d="M60,92 L58,90 L60,88 L62,90 Z" fill="rgba(255,255,255,0.4)"/>
+                            <path d="M48,80 L50,82 L52,80 L50,78 Z" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="60" cy="80" r="4" fill="rgba(255,255,255,0.4)"/>
+                        </g>
+                        
+                        <g opacity="0.5" transform="translate(320,90)">
+                            <circle cx="0" cy="0" r="8" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                            <path d="M0,-8 L2,-6 L0,-4 L-2,-6 Z" fill="rgba(255,255,255,0.3)"/>
+                            <path d="M8,0 L6,2 L4,0 L6,-2 Z" fill="rgba(255,255,255,0.3)"/>
+                            <path d="M0,8 L-2,6 L0,4 L2,6 Z" fill="rgba(255,255,255,0.3)"/>
+                            <path d="M-8,0 L-6,-2 L-4,0 L-6,2 Z" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="0" cy="0" r="2.5" fill="rgba(255,255,255,0.3)"/>
+                        </g>
+                        
+                        <!-- Grid Background -->
+                        <defs>
+                            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
+                        
+                        <!-- Animated Elements -->
+                        <circle cx="100" cy="40" r="2" fill="rgba(251,191,36,0.6)">
+                            <animate attributeName="cy" values="40;45;40" dur="3s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        
+                        <circle cx="300" cy="50" r="1.5" fill="rgba(251,191,36,0.4)">
+                            <animate attributeName="cx" values="300;310;300" dur="4s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Design Process</h2>
+                <p class="section-subtitle">A systematic approach to ensure your project success from start to finish</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in-up" style="--i:1">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We discuss your project requirements, timeline, and specifications to understand your needs perfectly and provide accurate estimates.</p>
+                </div>
+                <div class="process-step fade-in-up" style="--i:2">
+                    <div class="step-number">2</div>
+                    <h3>Concept Design</h3>
+                    <p>Create initial sketches and concepts based on your requirements and provide preliminary designs for your review and feedback.</p>
+                </div>
+                <div class="process-step fade-in-up" style="--i:3">
+                    <div class="step-number">3</div>
+                    <h3>3D Modeling</h3>
+                    <p>Develop detailed 3D models in SolidWorks with precise dimensions and engineering specifications that meet industry standards.</p>
+                </div>
+                <div class="process-step fade-in-up" style="--i:4">
+                    <div class="step-number">4</div>
+                    <h3>Review & Revise</h3>
+                    <p>Present the design for your feedback and make necessary revisions to ensure complete satisfaction and project requirements.</p>
+                </div>
+                <div class="process-step fade-in-up" style="--i:5">
+                    <div class="step-number">5</div>
+                    <h3>Final Delivery</h3>
+                    <p>Deliver final files in your preferred format with technical drawings, documentation, and full project support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Bring Your Ideas to Life?</h2>
+            <p>Get professional 3D designs and technical drawings, or learn SolidWorks with our expert training programs</p>
+            <div class="cta-buttons">
+                <a href="design_garage_landing.html" class="cta-button cta-secondary">
+                    <span>🚀</span> Start Your Project
+                </a>
+                <a href="#contact" class="cta-button cta-secondary">
+                    <span>📚</span> Book Training
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p>📧 Email: <a href="mailto:khuzairisulaiman@gmail.com">khuzairisulaiman@gmail.com</a></p>
+                    <p>📞 Phone: <a href="tel:+601153463627">+60 11-5346-3627</a></p>
+                    <p>📍 Location: Puchong, Selangor, Malaysia</p>
+                    <p>🕒 Hours: Monday - Saturday, 9AM - 7PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Design Services</h3>
+                    <a href="#services">3D Modeling & Design</a>
+                    <a href="#services">Technical Drawings</a>
+                    <a href="#services">Product Design</a>
+                    <a href="#services">Assembly Design</a>
+                    <a href="#services">File Format Conversion</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Training Programs</h3>
+                    <a href="#services">SolidWorks Fundamentals</a>
+                    <a href="#services">Advanced Modeling</a>
+                    <a href="#services">Assembly Design</a>
+                    <a href="#services">Technical Drawing</a>
+                    <a href="#services">Custom Training</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources & Support</h3>
+                    <a href="#about">About Design Garage</a>
+                    <a href="#process">Our Process</a>
+                    <a href="#services">Service Pricing</a>
+                    <a href="mailto:khuzairisulaiman@gmail.com">Technical Support</a>
+                    <a href="mailto:khuzairisulaiman@gmail.com">Project Consultation</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Design Garage. All rights reserved. | Professional 3D Design & CAD Services</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced smooth scrolling with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Enhanced header scroll effect
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = '0 8px 32px rgba(0,0,0,0.08)';
+            }
+            
+            // Hide/show header on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Enhanced stats animation with intersection observer
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = target.textContent;
+                        const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+                        const suffix = finalValue.replace(/\d+/g, '');
+                        let currentValue = 0;
+                        const increment = Math.ceil(numericValue / 30);
+                        
+                        const timer = setInterval(() => {
+                            currentValue += increment;
+                            if (currentValue >= numericValue) {
+                                target.textContent = finalValue;
+                                clearInterval(timer);
+                            } else {
+                                target.textContent = currentValue + suffix;
+                            }
+                        }, 40);
+                        
+                        observer.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.7 });
+            
+            stats.forEach(stat => observer.observe(stat));
+        }
+
+        // Enhanced fade-in animation system
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Add stagger effect for grid items
+                    const siblings = entry.target.parentNode.children;
+                    Array.from(siblings).forEach((sibling, index) => {
+                        if (sibling.classList.contains('fade-in-up')) {
+                            setTimeout(() => {
+                                sibling.classList.add('visible');
+                            }, index * 100);
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            fadeObserver.observe(el);
+        });
+
+        // Logo hover animation
+        const logo = document.querySelector('.logo');
+        logo.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) rotate(5deg)';
+        });
+        logo.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+
+        // Service card interactive effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.02)';
+                const icon = this.querySelector('.service-icon');
+                icon.style.transform = 'rotate(10deg) scale(1.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                const icon = this.querySelector('.service-icon');
+                icon.style.transform = 'rotate(0deg) scale(1)';
+            });
+        });
+
+        // Mobile menu functionality
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const heroContent = document.querySelector('.hero-content');
+            
+            if (hero && scrolled < hero.offsetHeight) {
+                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+                hero.style.opacity = 1 - scrolled / hero.offsetHeight;
+            }
+        });
+
+        // Initialize all animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateStats();
+            
+            // Add loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add dynamic typing effect to hero title
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Performance optimization: Debounce scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Apply debounce to scroll events
+        window.addEventListener('scroll', debounce(function() {
+            // Scroll-based animations here
+        }, 10));
+    </script>
+</body>
+</html>
